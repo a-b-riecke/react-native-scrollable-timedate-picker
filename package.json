@@ -41,7 +41,8 @@
     "typecheck": "tsc",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "lint": "eslint ."
   },
   "keywords": [
     "react-native",
