@@ -50,28 +50,25 @@ export default function App() {
 
 ```
 
-options:
-  onConfirm: (date: string) => void;
-  open: boolean;
-  type?: 'date' | 'time';
-  backgroundColor?: string;
-  confirmText?: string;
-  cancelText?: string;
-  highlightColor?: string;
-  itemTextColor?: string;
-  textColor?: string;
-  maxDate?:
-    | `${number}${number}-${number}${number}-${number}${number}${number}${number}`
-    | null;
-  maxTime?: `${number}${number}:${number}${number}` | null;
-  value:
-    | `${number}${number}:${number}${number}`
-    | `${number}${number}-${number}${number}-${number}${number}${number}${number}`;
-  buttonStyle?: StyleProp<ViewStyle>;
-  image?: ImageSourcePropType;
-  imageSize?: number;
-  buttonTextStyle?: StyleProp<TextStyle>;
-  language?: 'da' | 'de' | 'en' | 'fi' | 'sv' | 'no';
+| Option        | Value        | Required  | Default |
+| ------------- |:-------------:| -----:| -----: |
+| onConfirm     |  (date: string) => void;| yes | |
+|type           | 'date' or 'time' | no | 'date' |
+|backgroundColor | string | no | 'white' |
+|highlightColor | string | no | 'red' |
+|itemTextColor | string | no | 'grey' |
+|textColor | string | no | 'black' |
+|confirmText    | string | no | 'Confirm' |
+|cancelText    | string | no | 'Cancel' |
+|maxDate    | string 'DD-MM-YYYY' | no |  |
+|maxTime    | string 'HH:mm' | no |  |
+|open    | boolean | no | false |
+|value    | string 'DD-MM-YYYY' or  'HH:mm'| yes |  |
+|buttonStyle    | StyleProp<ViewStyle> | no |  |
+|buttonTextStyle    | StyleProp<ViewStyle> | no |  |
+|image    | ImageSourcePropType | no |  |
+|imageSize    | number | no | 25 |
+language: |'da'/'de'/ 'en'/ 'fi'/'sv'/'no' | no | 'en' |
 
 
 ## Contributing
