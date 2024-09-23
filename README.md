@@ -7,7 +7,7 @@ It's developer for personal usage, but if you can use it feel free.
 ## Installation
 
 ```sh
-npm install react-native-scrollable-time-date-picker
+yarn add react-native-scrollable-time-date-picker
 ```
 
 ## Usage

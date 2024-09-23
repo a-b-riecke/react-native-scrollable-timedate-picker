@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-time-date-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A scrollable date or time picker",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
