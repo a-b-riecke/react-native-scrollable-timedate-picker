@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-time-date-picker",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A scrollable date or time picker",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -51,16 +51,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-b-riecke?tab=repositories.git"
+    "url": "v"
   },
   "author": "Anders Riecke <ar@mobicom-pro.com> (https://github.com/a-b-riecke?tab=repositories)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/a-b-riecke?tab=repositories/issues"
+    "url": "https://github.com/a-b-riecke/react-native-scrollable-timedate-picker/issues"
   },
-  "homepage": "https://github.com/a-b-riecke?tab=repositories#readme",
+  "homepage": "https://github.com/a-b-riecke/react-native-scrollable-timedate-picker#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://www.npmjs.com/package/react-native-scrollable-time-date-picker"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",

@@ -10,8 +10,8 @@ export default function App() {
     <View>
       <Picker
         type={'time'}
-        confirmText={'Bekræft'}
-        cancelText={'Annuler'}
+        confirmText={'Confirm'}
+        cancelText={'Deny'}
         maxTime={'13:13'}
         value={'13:13'}
         open={false}
@@ -20,8 +20,8 @@ export default function App() {
       />
       <Picker
         type={'date'}
-        confirmText={'Bekræft'}
-        cancelText={'Annuler'}
+        confirmText={'Confirm'}
+        cancelText={'Deny'}
         maxDate={'19-09-2023'}
         value={'18-09-2022'}
         open={false}
