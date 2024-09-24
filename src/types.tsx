@@ -15,13 +15,9 @@ export type DatePickerProps = {
   highlightColor?: string;
   itemTextColor?: string;
   textColor?: string;
-  maxDate?:
-    | `${number}${number}-${number}${number}-${number}${number}${number}${number}`
-    | null;
+  maxDate?: string;
   maxTime?: `${number}${number}:${number}${number}` | null;
-  value:
-    | `${number}${number}:${number}${number}`
-    | `${number}${number}-${number}${number}-${number}${number}${number}${number}`;
+  value: string;
   buttonStyle?: StyleProp<ViewStyle>;
   image?: ImageSourcePropType;
   imageSize?: number;
@@ -31,7 +27,5 @@ export type DatePickerProps = {
 
 export type TimerPickerProps = DatePickerProps & {
   onChange?: (hour: string) => void;
-  selectedValue:
-    | `${number}${number}:${number}${number}`
-    | `${number}${number}-${number}${number}-${number}${number}${number}${number}`;
+  selectedValue: string;
 };
