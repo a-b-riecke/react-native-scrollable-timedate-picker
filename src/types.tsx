@@ -15,9 +15,9 @@ export type DatePickerProps = {
   highlightColor?: string;
   itemTextColor?: string;
   textColor?: string;
-  maxDate?: string;
-  maxTime?: string | null
-  value: string | null;
+  maxDate?: string | null;
+  maxTime?: string | null;
+  value: string;
   buttonStyle?: StyleProp<ViewStyle>;
   image?: ImageSourcePropType;
   imageSize?: number;
@@ -27,5 +27,5 @@ export type DatePickerProps = {
 
 export type TimerPickerProps = DatePickerProps & {
   onChange?: (hour: string) => void;
-  selectedValue: string | null;
+  selectedValue: string;
 };
