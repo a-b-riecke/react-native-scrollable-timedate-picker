@@ -6,6 +6,8 @@ It's developer for personal usage, but if you can use it feel free.
 
 The library is using https://github.com/rheng001/react-native-wheel-scrollview-picker(https://github.com/rheng001/react-native-wheel-scrollview-picker) as dependency.
 
+<p align="center"> <img src="https://github.com/a-b-riecke/react-native-scrollable-timedate-picker/blob/main/buttons.png" /> </p>
+<p align="center"> <img src="https://github.com/a-b-riecke/react-native-scrollable-timedate-picker/blob/main/modal.png" /> </p>
 
 ## Installation
 
