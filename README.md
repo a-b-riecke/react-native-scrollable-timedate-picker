@@ -4,6 +4,9 @@ A scrollable date or time picker where you can set max date & time.
 
 It's developer for personal usage, but if you can use it feel free. 
 
+The library is using https://github.com/rheng001/react-native-wheel-scrollview-picker(https://github.com/rheng001/react-native-wheel-scrollview-picker) as dependency.
+
+
 ## Installation
 
 ```sh

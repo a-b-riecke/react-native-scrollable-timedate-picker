@@ -2112,7 +2112,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/config-plugins@npm:8.0.8, @expo/config-plugins@npm:~8.0.8":
+"@expo/config-plugins@npm:8.0.9":
+  version: 8.0.9
+  resolution: "@expo/config-plugins@npm:8.0.9"
+  dependencies:
+    "@expo/config-types": ^51.0.0-unreleased
+    "@expo/json-file": ~8.3.0
+    "@expo/plist": ^0.1.0
+    "@expo/sdk-runtime-versions": ^1.0.0
+    chalk: ^4.1.2
+    debug: ^4.3.1
+    find-up: ~5.0.0
+    getenv: ^1.0.0
+    glob: 7.1.6
+    resolve-from: ^5.0.0
+    semver: ^7.5.4
+    slash: ^3.0.0
+    slugify: ^1.6.6
+    xcode: ^3.0.1
+    xml2js: 0.6.0
+  checksum: 69592d70daa9b4cf653152fa85e071dabd3fba9e6eb386f2329267c1ce9b77409b7d220d075cbc862ae50ae66479484136100c3bd632b8422259be6e1b7bec4c
+  languageName: node
+  linkType: hard
+
+"@expo/config-plugins@npm:~8.0.8":
   version: 8.0.8
   resolution: "@expo/config-plugins@npm:8.0.8"
   dependencies:
@@ -2351,7 +2374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/vector-icons@npm:^14.0.0":
+"@expo/vector-icons@npm:^14.0.3":
   version: 14.0.3
   resolution: "@expo/vector-icons@npm:14.0.3"
   dependencies:
@@ -7196,16 +7219,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:~51.0.28":
-  version: 51.0.32
-  resolution: "expo@npm:51.0.32"
+"expo@npm:~51.0.34":
+  version: 51.0.34
+  resolution: "expo@npm:51.0.34"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/cli": 0.18.29
     "@expo/config": 9.0.3
-    "@expo/config-plugins": 8.0.8
+    "@expo/config-plugins": 8.0.9
     "@expo/metro-config": 0.18.11
-    "@expo/vector-icons": ^14.0.0
+    "@expo/vector-icons": ^14.0.3
     babel-preset-expo: ~11.0.14
     expo-asset: ~10.0.10
     expo-file-system: ~17.0.1
@@ -7217,7 +7240,7 @@ __metadata:
     whatwg-url-without-unicode: 8.0.0-3
   bin:
     expo: bin/cli
-  checksum: 5d15ab5b8d4f29484183bfa7c6e20e8be0725ca5e0a9ab20c0a6ce40b3a05f86a7bb7230c83c86528522241b83de73f2b4a7219a4daa363564f9860a26501454
+  checksum: 9ddbe56961732f2f5afe209bf61f7627f61b145fd5096fc6351c7b5770fec8c14355f624755859a8c154c05b90ec1b0708419d0919c7e0b4f5e43974d926d1e6
   languageName: node
   linkType: hard
 
@@ -12540,7 +12563,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@expo/metro-runtime": ~3.2.3
-    expo: ~51.0.28
+    expo: ~51.0.34
     expo-status-bar: ~1.12.1
     react: 18.2.0
     react-dom: 18.2.0
