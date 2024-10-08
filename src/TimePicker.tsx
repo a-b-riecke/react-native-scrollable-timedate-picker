@@ -30,34 +30,42 @@ const TimePicker = (props: TimerPickerProps) => {
   const minuteRef = useRef<ScrollPickerHandle | null>(null);
 
   const checkMinutes = useCallback(() => {
+    let minutes = allMinutes;
     if (hourIndex + 1 === selectableHours.length && props.maxTime) {
       let minute = props.maxTime?.split(':')[1];
       let allMinuteIndex = allMinutes.indexOf(minute!);
-      let minutes = allMinutes.slice(0, allMinuteIndex + 1);
-
-      setSelectableMinutes(minutes);
-    } else {
-      setSelectableMinutes(allMinutes);
+      minutes = allMinutes.slice(0, allMinuteIndex + 1);
     }
-  }, [selectableHours, hourIndex, props.maxTime]);
+
+    console.log(hourIndex);
+    console.log(props.minTime);
+    if (hourIndex === 0 && props.minTime) {
+      let minute = props.minTime?.split(':')[1];
+      let minMinuteIndex = allMinutes.indexOf(minute!);
+      minutes = minutes.slice(minMinuteIndex);
+    }
+
+    setSelectableMinutes(minutes);
+  }, [selectableHours, hourIndex, props.maxTime, props.minTime]);
 
   const checkHours = useCallback(() => {
     let hour = props.maxTime?.split(':')[0];
     let allHourIndex = allHours.indexOf(hour!);
     let hours = allHours.slice(0, allHourIndex + 1);
 
+    if (props.minTime) {
+      let minHour = props.minTime?.split(':')[0];
+      let minHourIndex = allHours.indexOf(minHour!);
+      hours = hours.slice(minHourIndex);
+    }
+
     setSelectableHours(hours);
-  }, [props.maxTime]);
+  }, [props.maxTime, props.minTime]);
 
   useEffect(() => {
     if (props.maxTime == null) return;
     checkHours();
   }, [checkHours, props.maxTime]);
-
-  useEffect(() => {
-    if (props.maxTime == null) return;
-    checkHours();
-  }, [props.maxTime, checkHours]);
 
   useEffect(() => {
     if (props.maxTime == null) return;

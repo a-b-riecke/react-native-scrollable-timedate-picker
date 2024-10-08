@@ -15,6 +15,8 @@ export type DatePickerProps = {
   highlightColor?: string;
   itemTextColor?: string;
   textColor?: string;
+  minDate?: string | null;
+  minTime?: string | null;
   maxDate?: string | null;
   maxTime?: string | null;
   value: string;

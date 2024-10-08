@@ -10,6 +10,8 @@ export const DefaultProps = (props: DatePickerProps) => {
     highlightColor: props.highlightColor ?? 'red',
     itemTextColor: props.itemTextColor ?? 'grey',
     textColor: props.textColor ?? 'black',
+    minDate: props.minDate ?? null,
+    minTime: props.minTime ?? null,
     maxDate: props.maxDate ?? null,
     maxTime: props.maxTime ?? null,
     open: props.open ?? false,

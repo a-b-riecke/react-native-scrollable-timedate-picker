@@ -65,6 +65,8 @@ export default function App() {
 |textColor | string | no | 'black' |
 |confirmText    | string | no | 'Confirm' |
 |cancelText    | string | no | 'Cancel' |
+|minDate    | string 'DD-MM-YYYY' | no |  |
+|minTime    | string 'HH:mm' | no |  |
 |maxDate    | string 'DD-MM-YYYY' | no |  |
 |maxTime    | string 'HH:mm' | no |  |
 |open    | boolean | no | false |

@@ -38,26 +38,54 @@ const DatePicker = (props: TimerPickerProps) => {
     let allYearIndex = allYears.indexOf(year!);
     let years = allYears.slice(0, allYearIndex + 1);
 
+    if (props.minDate) {
+      let minYear = props.minDate?.split('-')[2];
+      let minYearIndex = years.indexOf(minYear!);
+      years = years.slice(minYearIndex);
+    }
+
     setSelectableYears(years);
-  }, [props.maxDate]);
+  }, [props.maxDate, props.minDate]);
 
   const checkMonths = useCallback(() => {
+    let tempMonths = allMonths;
     if (yearIndex + 1 === selectableYears.length) {
       let month = props.maxDate?.split('-')[1];
       let allMonthIndex = Number(month) - 1;
       let availMonths = allMonths.slice(0, allMonthIndex + 1);
 
-      setSelectableMonths(availMonths);
-    } else {
-      setSelectableMonths(allMonths);
+      tempMonths = availMonths;
     }
-  }, [allMonths, props.maxDate, selectableYears.length, yearIndex]);
+    if (yearIndex === 0 && props.minDate) {
+      let month = props.minDate?.split('-')[1];
+      let minMonthIndex = Number(month) - 1;
+      let availMonths = tempMonths.slice(minMonthIndex);
+      tempMonths = availMonths;
+    }
+
+    setSelectableMonths(tempMonths);
+  }, [
+    allMonths,
+    props.maxDate,
+    props.minDate,
+    selectableYears.length,
+    yearIndex,
+  ]);
+
+  const getDaysInMonth = (year: number, month: number) => {
+    const date = new Date(year, month + 1, 0);
+    return date.getDate();
+  };
 
   const checkDays = useCallback(() => {
-    const daysInMonth = getDaysInMonth(
-      monthIndex + 1,
-      Number(allYears[yearIndex])
+    const selectedMonth = allMonths.findIndex(
+      (value) => value === selectableMonths[monthIndex]
     );
+    const daysInMonth = getDaysInMonth(
+      Number(allYears[yearIndex]),
+      selectedMonth
+    );
+
     let allDayIndex = daysInMonth - 1;
     if (
       monthIndex + 1 === selectableMonths.length &&
@@ -68,34 +96,48 @@ const DatePicker = (props: TimerPickerProps) => {
       allDayIndex = Number(day) - 1;
     }
     let days = allDays.slice(0, allDayIndex + 1);
+
+    if (monthIndex === 0 && props.minDate) {
+      let day = props.minDate?.split('-')[0];
+      let minDayIndex = Number(day) - 1;
+      days = days.slice(minDayIndex);
+    }
+
     setSelectableDays(days);
   }, [
-    monthIndex,
-    props.maxDate,
-    selectableMonths.length,
-    selectableYears.length,
+    allMonths,
     yearIndex,
+    monthIndex,
+    selectableMonths,
+    selectableYears.length,
+    props.maxDate,
+    props.minDate,
   ]);
 
   useEffect(() => {
     if (props.maxDate == null) return;
     checkYears();
-    checkDays();
-  }, [checkDays, checkYears, props.maxDate]);
+  }, [checkDays, checkMonths, checkYears, props.maxDate, props.minDate]);
 
   useEffect(() => {
-    if (props.maxDate == null) return;
-    checkYears();
-  }, [checkYears, props.maxDate]);
-
-  useEffect(() => {
-    if (props.maxDate == null) return;
     checkMonths();
-  }, [checkMonths, props.maxDate, yearIndex]);
+  }, [checkMonths, yearIndex]);
 
   useEffect(() => {
     checkDays();
   }, [checkDays, monthIndex, yearIndex]);
+
+  useEffect(() => {
+    if (yearRef.current) {
+      if (yearIndex >= selectableYears.length + 1) {
+        const validYearIndex = Math.min(yearIndex, selectableYears.length - 1);
+        setTimeout(() => {
+          yearRef.current?.scrollToTargetIndex(validYearIndex);
+          setYearIndex(validYearIndex);
+        }, 100);
+      }
+    }
+  }, [yearIndex, selectableYears]);
 
   useEffect(() => {
     if (monthsRef.current) {
@@ -113,17 +155,6 @@ const DatePicker = (props: TimerPickerProps) => {
   }, [monthIndex, selectableMonths]);
 
   useEffect(() => {
-    props.onChange &&
-      props.onChange(
-        String(dayIndex + 1).padStart(2, '0') +
-          '-' +
-          String(monthIndex + 1).padStart(2, '0') +
-          '-' +
-          selectableYears[yearIndex]
-      );
-  }, [yearIndex, monthIndex, dayIndex, props, selectableYears]);
-
-  useEffect(() => {
     if (daysRef.current) {
       if (dayIndex >= selectableDays.length - 1) {
         const validDayIndex = Math.min(dayIndex, selectableDays.length - 1);
@@ -135,11 +166,29 @@ const DatePicker = (props: TimerPickerProps) => {
     }
   }, [dayIndex, selectableDays]);
 
-  const getDaysInMonth = (month: number, year: number) => {
-    const date = new Date(year, month, 1);
-    date.setDate(0);
-    return date.getDate();
-  };
+  useEffect(() => {
+    const selectedMonth = allMonths.findIndex(
+      (value) => value === selectableMonths[monthIndex]
+    );
+
+    props.onChange &&
+      props.onChange(
+        String(selectableDays[dayIndex]).padStart(2, '0') +
+          '-' +
+          String(selectedMonth + 1).padStart(2, '0') +
+          '-' +
+          selectableYears[yearIndex]
+      );
+  }, [
+    yearIndex,
+    monthIndex,
+    dayIndex,
+    props,
+    selectableYears,
+    allMonths,
+    selectableMonths,
+    selectableDays,
+  ]);
 
   const handleChange = (index: number, type: 'year' | 'month' | 'day') => {
     switch (type) {
