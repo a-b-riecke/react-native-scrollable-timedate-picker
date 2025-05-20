@@ -37,8 +37,6 @@ const TimePicker = (props: TimerPickerProps) => {
       minutes = allMinutes.slice(0, allMinuteIndex + 1);
     }
 
-    console.log(hourIndex);
-    console.log(props.minTime);
     if (hourIndex === 0 && props.minTime) {
       let minute = props.minTime?.split(':')[1];
       let minMinuteIndex = allMinutes.indexOf(minute!);
@@ -63,14 +61,14 @@ const TimePicker = (props: TimerPickerProps) => {
   }, [props.maxTime, props.minTime]);
 
   useEffect(() => {
-    if (props.maxTime == null) return;
+    if (props.maxTime == null && props.minTime == null) return;
     checkHours();
-  }, [checkHours, props.maxTime]);
+  }, [checkHours, props.maxTime, props.minTime]);
 
   useEffect(() => {
-    if (props.maxTime == null) return;
+    if (props.maxTime == null && props.minTime == null) return;
     checkMinutes();
-  }, [hourIndex, selectableHours, checkMinutes, props.maxTime]);
+  }, [hourIndex, selectableHours, checkMinutes, props.maxTime, props.minTime]);
 
   useEffect(() => {
     if (minuteRef.current) {
