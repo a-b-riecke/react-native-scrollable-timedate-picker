@@ -44,7 +44,7 @@ const Picker = (props: DatePickerProps) => {
       <Modal
         animationType="fade"
         transparent={true}
-        statusBarTranslucent={true}
+        statusBarTranslucent={false}
         visible={isOpen}
         onRequestClose={() => {
           setIsOpen(!isOpen);
